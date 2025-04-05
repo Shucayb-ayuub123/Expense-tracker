@@ -1,0 +1,8 @@
+nav .logo h1 {
+    font-size: 30px;
+}
+
+.nav-link .active a {
+    font-weight: bold;
+    color: black;
+}

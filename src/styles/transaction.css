@@ -1,0 +1,16 @@
+.dd h1{
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.income {
+    color: green;
+}
+
+.expenses {
+    color: red;
+}
+
+#amount {
+    text-align: center;
+}
