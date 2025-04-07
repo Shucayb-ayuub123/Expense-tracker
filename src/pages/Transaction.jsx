@@ -17,14 +17,15 @@ const existingTransaction=JSON.parse(localStorage.getItem("transaction")) || [];
 
   function handleEdit(i) {
     const EditTransaction = transaction[i];
-    navigate("/Addtransaction", {
-      state: { transaction: { ...EditTransaction, i } },
-    });
+   navigate("/addtransaction" , {
+    state : {transaction : {...EditTransaction , i}}
+   })
   }
 
 
   function handleDelete(index) {
-    const UpdateTransaction = transaction.filter((_, i) => i !== index);
+       
+    const UpdateTransaction = transaction.filter((data, i) => i !== index);
    setTransaction(UpdateTransaction)
     localStorage.setItem("transaction", JSON.stringify(UpdateTransaction));
   }
@@ -70,10 +71,10 @@ const existingTransaction=JSON.parse(localStorage.getItem("transaction")) || [];
                 className={tx.type == "Income" ? "income" : "expenses"}
                 id="amount"
               >
-                {"$" + tx.Amount}
+                {"$" + tx.Amount || "null"}
               </td>
               <td className="border-collapse border-1 py-2 border-gray-300 text-center">
-                {tx.Date}
+                {tx.Date || "null"}
               </td>
               <td className="border-collapse border-1 py-2 border-gray-300 text-center">
                 {tx.type}

@@ -27,7 +27,7 @@ ChartJS.register(
 const Report = () => {
   const [transaction, setTransaction] = useState([]);
   const [SelectMonth, setSelectMonth] = useState(
-    new Date().toISOString().slice(0, 7)
+    new Date().toISOString().slice(0, 11)
   );
   const [TotalIncome, setTotalIncome] = useState(0);
   const [FilterTransaction, setFilterTransaction] = useState([]);
@@ -35,15 +35,15 @@ const Report = () => {
   const [CategoryData, setCategoryData] = useState({});
 
   useEffect(() => {
-    const storedTransaction =
-      JSON.parse(localStorage.getItem("transaction")) || [];
+    const storedTransaction = JSON.parse(localStorage.getItem("transaction")) || [];
     setTransaction(storedTransaction);
-  }, []);
+  } , [])
 
+  
   useEffect(() => {
-    const Filtered = transaction.filter((tx) =>
-      tx.Date.startsWith(SelectMonth)
-    );
+
+    
+    const Filtered = transaction.filter((tx) => tx.Date.startsWith(SelectMonth));
 
     setFilterTransaction(Filtered);
 
@@ -65,6 +65,9 @@ const Report = () => {
     setTotalIncome(income);
     setTotalExpense(expenses);
     setCategoryData(CategoryBreakDown);
+
+  
+    
   }, [transaction, SelectMonth]);
 
   const peiChartData = {
@@ -137,7 +140,7 @@ const Report = () => {
       </div>
 
       <div className="w-9/12 flex justify-center items-center mx-auto mt-30 space-x-10 ">
-        <div className="w-1/2 h-120 flex justify-center items-center flex-col text-center shadow-xl rounded-lg ">
+        <div className="w-1/2 h-100 flex px-21 py-11  flex-col text-center shadow-xl rounded-lg ">
           <h3>Category-wise Expense Breakdown</h3>
           {Object.keys(CategoryData).length == 0 ? (
             <NoTransaction />
@@ -148,7 +151,7 @@ const Report = () => {
           )}
         </div>
 
-        <div className="w-1/2 flex justify-center items-center flex-col text-center shadow-xl h-120 py-4 px-4   ">
+        <div className="w-1/2 flex justify-center items-center flex-col text-center shadow-xl h-100 py-4 px-4   ">
           <h3>Income vs Expenses</h3>
 
           {TotalExpense === 0 && TotalIncome === 0 ? (

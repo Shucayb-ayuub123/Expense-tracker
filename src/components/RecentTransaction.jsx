@@ -11,6 +11,7 @@ function RecentTransaction({transaction}) {
                 {tx.Category}
               
             </span>
+            
             <span className={tx.type == 'Income' ? 'income' : 'expenses'}>
                ${tx.Amount}
             </span>

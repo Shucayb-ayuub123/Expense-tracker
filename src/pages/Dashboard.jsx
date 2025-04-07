@@ -34,7 +34,7 @@ const Dashboard = () => {
   const [MaxExpenses, setMaxExpenses] = useState(0);
 
   const navigate = useNavigate();
-  const categoreis = ["Salary", "Dining", "Education fee", "Food"];
+  const categoreis = ["Salary", "Dining", "Education fee", "Food" , "Rent" ,  "Others"];
 
   useEffect(() => {
     const existingTransaction =
@@ -50,6 +50,8 @@ const Dashboard = () => {
     let highestExpenses = 0;
     categoreis.forEach((cat) => CategoryBreakDown[cat] = 0);
 
+    console.log(CategoryBreakDown);
+    
 
     existingTransaction.forEach((tx) => {
       if (tx.type == "Income") {
@@ -85,30 +87,31 @@ const Dashboard = () => {
           "#4CAF50",
           "#9966FF",
           "#FFA07A",
+          "#FFA08B",
         ],
       },
     ],
   };
 
-  const chartOptions = {
-    scales: {
-      y: {
-        beginAtZero: true,
-        suggestedMax: MaxExpenses > 0 ? MaxExpenses * 1.2 : 10,
-        grid: {
-          display: false,
+    const chartOptions = {
+      scales: {
+        y: {
+          beginAtZero: true,
+          suggestedMax: MaxExpenses > 0 ? MaxExpenses * 1.2 : 10,
+          grid: {
+            display: false,
+          },
+        },
+
+        x: {
+          grid: {
+            display: false,
+          },
         },
       },
 
-      x: {
-        grid: {
-          display: false,
-        },
-      },
-    },
-
-    maintainAspectRatio: false,
-  };
+      maintainAspectRatio: false,
+    };
   return (
     <div className="dashbaord mt-5">
       <div className="dashbaord-inner flex justify-between ">
@@ -126,9 +129,10 @@ const Dashboard = () => {
       />
 
       <div className="flex justify-center items-center w-11/12 m-auto gap-4">
-        <div className="w-1/2 shadow-xl p-6 rounded-lg h-90">
+        <div className="w-1/2 shadow-xl p-6 rounded-lg min-h-0 h-90">
           <h3 className="font-bold mb-2 text-xl">Recent Transaction</h3>
-          {transaction.length == 0 ? <NoTransaction /> : <RecentTransaction transaction={transaction} /> }
+          {transaction.length == 0 ?
+                 <NoTransaction /> : <RecentTransaction transaction={transaction} /> }
         </div>
 
         <div className="w-1/2 shadow-xl p-5 rounded-lg  h-90">

@@ -70,12 +70,12 @@ function Addtransaction() {
   console.log(Date);
   
   return (
-    <div className="container flex w-12/12  justify-center items-center shrink-0 flex-col h-10/12 mt-20 flex-nowrap">
+    <div className="container flex w-12/12  justify-center items-center shrink-0 flex-col h-10/12 mt-10 flex-nowrap mx-auto">
       <div className="title w-5/12 mb-5">
         <h3>AddTransaction</h3>
       </div>
 
-      <div className="form w-4/12 shrink-0 flex-nowrap  px-10 py-10 h-11/12 rounded-md max-w-">
+      <div className="form w-4/12 shrink-0 flex-nowrap  px-10 py-10 h-11/12 rounded-md mx-auto ">
         <div className="RadioInput flex gap-3 ">
           <input
             type="radio"
