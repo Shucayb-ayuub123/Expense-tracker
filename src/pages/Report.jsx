@@ -127,20 +127,20 @@ const Report = () => {
         />
       </div>
 
-      <div className="w-9/12 mx-auto gap-8 mt-10 flex justify-center items-center">
-        <div className="w-1/2 shadow-md h-40 rounded-md py-10 px-10 text-center">
+      <div className=" grid grid-cols-1 space-y-2 md:flex w-9/12 mx-auto gap-8 mt-10 justify-center items-center">
+        <div className=" w-full md:w-1/2 shadow-md h-40 rounded-md py-10 px-10 text-center">
           <h2>Total Income</h2>
           <p className="text-2xl font-bold text-green-400">${TotalIncome}</p>
         </div>
 
-        <div className="w-1/2 shadow-md h-40 rounded-md py-10 px-10 text-center ">
+        <div className=" w-full md:w-1/2 shadow-md h-40 rounded-md py-10 px-10 text-center ">
           <h2>Total Expenses</h2>
           <p className="text-2xl font-bold text-red-400">${TotalExpense}</p>
         </div>
       </div>
 
-      <div className="w-9/12 flex justify-center items-center mx-auto mt-30 space-x-10 ">
-        <div className="w-1/2 h-100 flex px-21 py-11  flex-col text-center shadow-xl rounded-lg ">
+      <div className=" grid grid-cols-1 space-y-10 md:flex w-8/12 justify-center items-center mx-auto mt-30 space-x-10  ">
+        <div className=" w-full flex justify-center items-center  md:flex w-1/2 h-90  px-4 py-4    flex-col text-center shadow-xl rounded-lg ">
           <h3>Category-wise Expense Breakdown</h3>
           {Object.keys(CategoryData).length == 0 ? (
             <NoTransaction />
@@ -151,7 +151,7 @@ const Report = () => {
           )}
         </div>
 
-        <div className="w-1/2 flex justify-center items-center flex-col text-center shadow-xl h-100 py-4 px-4   ">
+        <div className=" w-full flex justify-center items-center md:flex  justify-center items-center w-1/2 h-90 flex-col text-center shadow-xl py-4 px-4   ">
           <h3>Income vs Expenses</h3>
 
           {TotalExpense === 0 && TotalIncome === 0 ? (

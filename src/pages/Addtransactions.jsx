@@ -12,11 +12,14 @@ function Addtransaction() {
 
 
   const location = useLocation();
+  
+  
   function handleData(e) {
     console.log(type, Amount, Category, Description, Date);
 
     const existingTransaction =
       JSON.parse(localStorage.getItem("transaction")) || [];
+
     const currentTransaction = {
       type: type,
       Amount: parseFloat(Amount),
@@ -24,6 +27,7 @@ function Addtransaction() {
       Description: Description,
       Date: Date,
     };
+
     let newTransaction;
     if (editIndex == null) {
       newTransaction = [...existingTransaction, currentTransaction];
@@ -75,7 +79,7 @@ function Addtransaction() {
         <h3>AddTransaction</h3>
       </div>
 
-      <div className="form w-4/12 shrink-0 flex-nowrap  px-10 py-10 h-11/12 rounded-md mx-auto ">
+      <div className=" max-w-sm md:max-w-md w-full shadow-2xl  shrink-0 flex-nowrap  px-10 py-6 h-1/12 rounded-md mx-auto ">
         <div className="RadioInput flex gap-3 ">
           <input
             type="radio"
@@ -146,6 +150,8 @@ function Addtransaction() {
         </div>
       </div>
     </div>
+    
+  
   );
 }
 

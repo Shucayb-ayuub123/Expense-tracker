@@ -7,7 +7,7 @@ import Report  from './pages/Report'
 import NotFound  from './pages/NotFound'
 import Addtransactions from './pages/Addtransactions'
 function App() {
-  return <div>
+  return <div className="min-h-0">
     <Navbar />
     
     <Routes>
